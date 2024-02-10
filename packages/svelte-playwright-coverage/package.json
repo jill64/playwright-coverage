@@ -4,7 +4,7 @@
   "version": "",
   "type": "module",
   "bin": {
-    "spc": "./dist/src/bin/index.js"
+    "plc": "./dist/src/bin/index.js"
   },
   "files": [
     "dist",
@@ -15,13 +15,9 @@
       "types": "./dist/src/test/index.d.ts",
       "default": "./dist/src/test/index.js"
     },
-    "./vite": {
-      "types": "./dist/src/vite/index.d.ts",
-      "default": "./dist/src/vite/index.js"
-    },
-    "./spc": {
-      "types": "./dist/src/spc/index.d.ts",
-      "default": "./dist/src/spc/index.js"
+    "./plc": {
+      "types": "./dist/src/plc/index.d.ts",
+      "default": "./dist/src/plc/index.js"
     },
     ".": {
       "types": "./dist/src/index.d.ts",

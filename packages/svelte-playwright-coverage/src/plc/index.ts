@@ -4,7 +4,7 @@ import process from 'node:process'
 import { postprocess } from './postprocess.js'
 import { preprocess } from './preprocess.js'
 
-export const spc = new App(
+export const plc = new App(
   {
     options: {
       output: {

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
 import process from 'node:process'
-import { spc } from '../spc/index.js'
+import { plc } from '../plc/index.js'
 
-spc.run(process.argv)
+plc.run(process.argv)
