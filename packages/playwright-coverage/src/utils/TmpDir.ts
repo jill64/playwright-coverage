@@ -2,7 +2,6 @@ import fs from 'node:fs/promises'
 import os from 'node:os'
 import path from 'node:path'
 import process from 'node:process'
-import { APP_NAME } from '../constants.js'
 
 /**
  * Temporary directory for V8 coverage output
@@ -11,7 +10,7 @@ import { APP_NAME } from '../constants.js'
 export const TmpDir = {
   async generate() {
     // Create a temporary directory name prefix
-    const prefix = path.join(os.tmpdir(), APP_NAME + '-')
+    const prefix = path.join(os.tmpdir(), 'playwright-coverage-')
 
     // Create a temporary directory
     const tmp = await fs.mkdtemp(prefix)
