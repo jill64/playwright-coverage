@@ -2,11 +2,11 @@
 
 # playwright-coverage
 
+
 <!----- BEGIN GHOST DOCS BADGES ----->
-
 <a href="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml"><img src="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml/badge.svg" alt="ci.yml" /></a>
-
 <!----- END GHOST DOCS BADGES ----->
+
 
 ☂️ E2E Coverage Measurement for Playwright
 
