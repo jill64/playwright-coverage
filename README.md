@@ -26,7 +26,7 @@ npm i -D @jill64/playwright-coverage
 
 1. Configure your bundler settings to output source maps
 
-for example `vite`
+for example in vite, 
 
 ```js
 // vite.config.js
@@ -81,7 +81,6 @@ plc --serve /path/to/source playwright test
 | --version | -v    | show version         |
 | --quiet   | -q    | suppress log         |
 | --debug   | -d    | debug mode           |
-| --base    | -b    | source-map base path |
 
 > [!NOTE]
 >
