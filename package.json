@@ -10,7 +10,7 @@
     "format": "pnpm -r format",
     "test": "vitest",
     "test:e2e": "playwright test",
-    "test:e2e:coverage": "plc pnpm test:e2e"
+    "test:e2e:coverage": "plc --serve packages/demo/.svelte-kit/output/client pnpm test:e2e"
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
