@@ -2,11 +2,11 @@
 
 # playwright-coverage
 
-
 <!----- BEGIN GHOST DOCS BADGES ----->
-<a href="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml"><img src="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml/badge.svg" alt="ci.yml" /></a>
-<!----- END GHOST DOCS BADGES ----->
 
+<a href="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml"><img src="https://github.com/jill64/playwright-coverage/actions/workflows/ci.yml/badge.svg" alt="ci.yml" /></a>
+
+<!----- END GHOST DOCS BADGES ----->
 
 ☂️ E2E Coverage Measurement for Playwright
 
@@ -51,36 +51,42 @@ export default defineConfig({
 + import { test, expect } from '@jill64/playwright-coverage/test'
 ```
 
-## Usage
+3. Check where your server is serving files from.
 
-Run test command with `plc`(<u>**pl**</u>aywright <u>**c**</u>overage)
-
-```sh
-plc playwright test
-```
+4. The location is described in the `serve` option, either as an absolute path or relative to the `cwd`. If not specified, it is `cwd`.
 
 > [!NOTE]
+> Framework config
 >
-> The `playwright` coverage API is currently [supported by Chromium-based browsers](https://playwright.dev/docs/api/class-coverage).  
-> If the test is run on a browser other than `chromium`, the test run will not be blocked, but a warning will be displayed in the console and no coverage will be collected.
+> |           |                               |
+> | --------- | ----------------------------- |
+> | sveltekit | `./.svelte-kit/output/client` |
 
-## Options
+## Usage
 
+Run test command with `plc`(<u>**pl**</u>aywright <u>**c**</u>overage).
 If pass options to `plc`, before the test command.
 
 ```sh
-plc --output coverage-result playwright test
+plc --serve /path/to/source playwright test
 ```
+
+## Options
 
 | option    | short | description          |
 | --------- | ----- | -------------------- |
+| --serve   | -s    | path to source root  |
 | --output  | -o    | output directory     |
 | --help    | -h    | show help            |
 | --version | -v    | show version         |
 | --quiet   | -q    | suppress log         |
 | --debug   | -d    | debug mode           |
-| --root    | -r    | root directory       |
 | --base    | -b    | source-map base path |
+
+> [!NOTE]
+>
+> The playwright coverage API is currently [supported by Chromium-based browsers](https://playwright.dev/docs/api/class-coverage).  
+> If the test is run on a browser other than chromium, the test run will not be blocked, but a warning will be displayed in the console and no coverage will be collected.
 
 <!----- BEGIN GHOST DOCS FOOTER ----->
 
