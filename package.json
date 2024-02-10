@@ -9,8 +9,9 @@
     "lint": "pnpm build && pnpm -r lint",
     "format": "pnpm -r format",
     "test": "vitest",
+    "plc": "tsx packages/playwright-coverage/src/bin/index.ts",
     "test:e2e": "playwright test",
-    "test:e2e:coverage": "pnpm build && pnpm i && plc --serve packages/demo/.svelte-kit/output/client pnpm test:e2e"
+    "test:e2e:coverage": "pnpm plc --serve ./packages/demo/.svelte-kit/output/client pnpm test:e2e"
   },
   "prettier": "@jill64/prettier-config",
   "devDependencies": {
@@ -25,7 +26,6 @@
     "tsx": "4.7.0",
     "typescript": "5.3.3",
     "vite": "5.1.1",
-    "vitest": "1.2.2",
-    "@jill64/playwright-coverage": "file:packages/playwright-coverage"
+    "vitest": "1.2.2"
   }
 }
