@@ -55,6 +55,10 @@ ${kleur.bold('☂️ playwright-coverage')}
   const cwd = process.cwd()
   const root = serve ? path.join(cwd, serve) : cwd
 
+  // TODO: Fix this
+  console.debug('process.argv', process.argv)
+  console.debug('opts', opts)
+
   return {
     root,
     logger
