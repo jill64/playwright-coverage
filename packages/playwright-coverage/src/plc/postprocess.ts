@@ -12,12 +12,15 @@ import { resolve } from './resolve.js'
 import { Context } from './types/Context.js'
 
 export const postprocess = async (ctx: Context) => {
-  console.debug(`tmpDir: ${TmpDir.get()}`)
-  console.debug(`outDir: ${OutDir.get()}\n`)
+  const { logger } = ctx
+  const quiet = !logger.log
 
-  const spinner = new Spinner(kleur.cyan('Analyzing...'))
+  logger.debug(`tmpDir: ${TmpDir.get()}`)
+  logger.debug(`outDir: ${OutDir.get()}\n`)
 
-  spinner.start()
+  const spinner = quiet ? null : new Spinner(kleur.cyan('Analyzing...'))
+
+  spinner?.start()
 
   // Copy server coverage to the dist directory
   const dist = path.join(OutDir.get(), SERVER_RAW_DIR)
@@ -29,16 +32,16 @@ export const postprocess = async (ctx: Context) => {
     await convert()
     await report()
 
-    spinner.stop(true)
+    spinner?.stop(true)
 
-    console.log(
+    logger.log(
       kleur.bold().green('✅ Coverage measurements have been completed.\n')
     )
   } catch (e) {
-    spinner.stop(true)
+    spinner?.stop(true)
 
-    console.error(e)
-    console.error(
+    logger.error(e)
+    logger.error(
       kleur.bold().red('❌ Coverage measurements have been failed.\n')
     )
   }

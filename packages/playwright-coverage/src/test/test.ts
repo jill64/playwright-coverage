@@ -17,7 +17,7 @@ process.env.NODE_V8_COVERAGE = ''
 
 base.beforeEach(async ({ page, browserName }) => {
   if (!inCoverageMode()) {
-    console.debug(kleur.gray('Now in non-coverage mode.'))
+    logger.debug(kleur.gray('Now in non-coverage mode.'))
     return
   }
 
