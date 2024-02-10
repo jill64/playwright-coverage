@@ -37,9 +37,9 @@
 
 ## coverage/e2e
 
-- vite
+- client
   - raw
   - resolved
-- playwright
+- server
   - raw
   - resolved

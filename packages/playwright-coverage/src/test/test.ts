@@ -2,7 +2,7 @@ import { PlaywrightWorkerOptions, test as base } from '@playwright/test'
 import kleur from 'kleur'
 import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
-import { PLAYWRIGHT_RAW_DIR } from '../constants.js'
+import { CLIENT_RAW_DIR } from '../constants.js'
 import { inCoverageMode } from '../utils/inCoverageMode.js'
 import { OutDir } from '../utils/OutDir.js'
 
@@ -42,7 +42,7 @@ base.afterEach(async ({ page, browserName }, { testId }) => {
 
   const coverage = await page.coverage.stopJSCoverage()
 
-  const out = path.join(OutDir.get(), PLAYWRIGHT_RAW_DIR)
+  const out = path.join(OutDir.get(), CLIENT_RAW_DIR)
 
   await mkdir(out, { recursive: true })
 

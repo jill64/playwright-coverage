@@ -2,21 +2,21 @@ import type { NodeV8Coverage } from '@jill64/v8-resolver'
 import { resolve as resolver } from '@jill64/v8-resolver'
 import path from 'node:path'
 import {
-  PLAYWRIGHT_RAW_DIR,
-  PLAYWRIGHT_RESOLVED_DIR,
-  VITE_RAW_DIR,
-  VITE_RESOLVED_DIR
+  CLIENT_RAW_DIR,
+  CLIENT_RESOLVED_DIR,
+  SERVER_RAW_DIR,
+  SERVER_RESOLVED_DIR
 } from '../constants.js'
 import { OutDir } from '../utils/OutDir.js'
 import { Context } from './types/Context.js'
 import { thinning } from './utils/thinning.js'
 import { transformDir } from './utils/transformDir.js'
 
-const vite = async (root: string) => {
+const server = async (root: string) => {
   const outDir = OutDir.get()
 
-  const from = path.join(outDir, VITE_RAW_DIR)
-  const to = path.join(outDir, VITE_RESOLVED_DIR)
+  const from = path.join(outDir, SERVER_RAW_DIR)
+  const to = path.join(outDir, SERVER_RESOLVED_DIR)
 
   await transformDir(from, to, async (source: string) => {
     const {
@@ -47,11 +47,11 @@ const vite = async (root: string) => {
   })
 }
 
-const playwright = async (root: string) => {
+const client = async (root: string) => {
   const outDir = OutDir.get()
 
-  const from = path.join(outDir, PLAYWRIGHT_RAW_DIR)
-  const to = path.join(outDir, PLAYWRIGHT_RESOLVED_DIR)
+  const from = path.join(outDir, CLIENT_RAW_DIR)
+  const to = path.join(outDir, CLIENT_RESOLVED_DIR)
 
   await transformDir(from, to, async (source: string): Promise<string> => {
     const result = JSON.parse(source)
@@ -77,5 +77,5 @@ const playwright = async (root: string) => {
 }
 
 export const resolve = async ({ root }: Context) => {
-  await Promise.all([playwright(root), vite(root)])
+  await Promise.all([client(root), server(root)])
 }
