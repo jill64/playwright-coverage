@@ -22,6 +22,12 @@ ${kleur.bold(`☂️ ${APP_NAME}`)}
   return {
     root:
       // process.cwd()
-      path.join(process.cwd(), 'packages/demo')
+      path.join(
+        process.cwd(),
+        'packages/demo',
+        '.svelte-kit',
+        'output',
+        'client'
+      )
   }
 }
