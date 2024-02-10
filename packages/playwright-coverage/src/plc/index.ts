@@ -3,41 +3,11 @@ import { spawn } from 'node:child_process'
 import process from 'node:process'
 import { postprocess } from './postprocess.js'
 import { preprocess } from './preprocess.js'
+import { options } from './options.js'
 
 export const plc = new App(
   {
-    options: {
-      serve: {
-        alias: 's',
-        description: 'Path to source root',
-        type: 'string'
-      },
-      output: {
-        alias: 'o',
-        description: 'Output directory',
-        type: 'string'
-      },
-      help: {
-        alias: 'h',
-        description: 'Show help',
-        type: 'string'
-      },
-      version: {
-        alias: 'v',
-        description: 'Show version',
-        type: 'string'
-      },
-      quiet: {
-        alias: 'q',
-        description: 'Suppress logging',
-        type: 'string'
-      },
-      debug: {
-        alias: 'd',
-        description: 'Debug mode',
-        type: 'string'
-      }
-    },
+    options,
     rest: {
       placeholder: 'command',
       description: 'Playwright test command'
@@ -48,7 +18,7 @@ export const plc = new App(
       throw new Error('Command is required')
     }
 
-    const ctx = await preprocess(options?.output)
+    const ctx = await preprocess(options)
 
     const command = rest.join(' ')
 
