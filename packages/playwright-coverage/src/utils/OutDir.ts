@@ -7,7 +7,7 @@ export const OutDir = {
     // Set the output directory
     const out = path.join(process.cwd(), output)
 
-    process.env.SVELTE_PLAYWRIGHT_COVERAGE_OUTPUT = out
+    process.env.PLAYWRIGHT_COVERAGE_OUTPUT = out
 
     // Clean up the output directory
     rm(out, {
@@ -16,10 +16,10 @@ export const OutDir = {
     })
   },
   get() {
-    const out = process.env.SVELTE_PLAYWRIGHT_COVERAGE_OUTPUT
+    const out = process.env.PLAYWRIGHT_COVERAGE_OUTPUT
 
     if (!out) {
-      throw new Error('SVELTE_PLAYWRIGHT_COVERAGE_OUTPUT is not set')
+      throw new Error('PLAYWRIGHT_COVERAGE_OUTPUT is not set')
     }
 
     return out

@@ -8,7 +8,7 @@
     "prepack": "pnpm -r build",
     "lint": "pnpm build && pnpm -r lint",
     "format": "pnpm -r format",
-    "spc": "tsx packages/svelte-playwright-coverage/src/bin/index.ts",
+    "spc": "tsx packages/playwright-coverage/src/bin/index.ts",
     "test": "vitest",
     "test:e2e": "playwright test",
     "test:e2e:coverage": "pnpm spc pnpm test:e2e"

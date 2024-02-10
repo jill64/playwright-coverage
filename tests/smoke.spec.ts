@@ -1,7 +1,7 @@
 import {
   expect,
   test
-} from '../packages/svelte-playwright-coverage/src/test/index.js'
+} from '../packages/playwright-coverage/src/test/index.js'
 
 test('smoke', async ({ page }) => {
   await page.goto('/')
