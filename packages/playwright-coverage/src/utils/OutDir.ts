@@ -3,14 +3,14 @@ import path from 'node:path'
 import process from 'node:process'
 
 export const OutDir = {
-  set(output: string) {
+  async set(output: string) {
     // Set the output directory
     const out = path.join(process.cwd(), output)
 
     process.env.PLAYWRIGHT_COVERAGE_OUTPUT = out
 
     // Clean up the output directory
-    rm(out, {
+    await rm(out, {
       recursive: true,
       force: true
     })

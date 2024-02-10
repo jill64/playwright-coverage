@@ -6,6 +6,7 @@ import { TmpDir } from '../utils/TmpDir.js'
 import { options } from './options.js'
 import packageJson from '../../package.json' assert { type: 'json' }
 import { help as helpMessage } from './help.js'
+import process from 'node:process'
 
 const empty = () => {}
 
